@@ -4,8 +4,8 @@ public class App {
         CapteurGaz capteur_gaz = new CapteurGaz("Capteur de gaz", "Salle de bain", "CO2", 0, 100);
         CapteurGaz capteur_gaz2 = new CapteurGaz("Capteur de gaz", "Cuisine", "CO2", 0, 100);
         CapteurIncendie capteur_incendie = new CapteurIncendie("Capteur d'incendie", "Salon", false);
-        Moniteur moniteurA = new Moniteur("Moniteur A");
-        Moniteur moniteurB = new Moniteur("Moniteur B");
+        Moniteur moniteurA = new MoniteurA("Moniteur A");
+        Moniteur moniteurB = new MoniteurB("Moniteur B");
 
         capteur_gaz.addAnomalieListener(moniteurA);
         capteur_gaz.addAnomalieListener(moniteurB);

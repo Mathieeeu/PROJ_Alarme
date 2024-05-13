@@ -7,4 +7,8 @@ public class MoniteurB extends Moniteur {
     public String toString() {
         return "MoniteurB [nom=" + super.nom + "]";
     }
+
+    public String getType(){
+        return "B";
+    }
 }

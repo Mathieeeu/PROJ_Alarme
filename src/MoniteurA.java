@@ -4,6 +4,10 @@ public class MoniteurA extends Moniteur {
         super(nom);
     }
 
+    public String getType(){
+        return "A";
+    }
+
     public String toString() {
         return "MoniteurA [nom=" + super.nom + "]";
     }

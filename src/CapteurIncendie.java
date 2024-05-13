@@ -7,7 +7,7 @@ public class CapteurIncendie extends Capteur {
     }
 
     public String toString() {
-        return "CapteurIncendie [nom=" + super.nom + ", localisation=" + this.localisation + "]";
+        return "CapteurIncendie [nom=" + super.nom + ", localisation=" + this.localisation + ", feu=" + this.feu + "]";
     }
 
     public void setFeu(boolean feu) {
@@ -24,12 +24,12 @@ public class CapteurIncendie extends Capteur {
             int niveau_importance = Integer.parseInt(System.console().readLine());
             System.out.println("\n");
             IncendieEvent event = new IncendieEvent(this, date, this.localisation, niveau_importance);
-            for (AnomalieListener listener : listerners){
+            for (AnomalieListener listener : listeners){
                 listener.nouvelleAnomalie(event);
             }
         }
         else {
-            for (AnomalieListener listener : listerners){
+            for (AnomalieListener listener : listeners){
                 listener.aucuneAnomalie();
             }
         }

@@ -3,13 +3,13 @@ import java.util.ArrayList;
 public abstract class Capteur {
     protected String nom;
     protected String localisation;
-    protected ArrayList<AnomalieListener> listerners;
+    protected ArrayList<AnomalieListener> listeners;
 
 
     public Capteur(String nom, String localisation) {
         this.nom = nom;
         this.localisation = localisation;
-        listerners = new ArrayList<AnomalieListener>();
+        listeners = new ArrayList<AnomalieListener>();
     }
 
     public String toString() {
@@ -17,11 +17,11 @@ public abstract class Capteur {
     }
 
     public void addAnomalieListener(AnomalieListener listener) {
-        listerners.add(listener);
+        listeners.add(listener);
     }
 
     public void removeAnomalieListener(AnomalieListener listener) {
-        listerners.remove(listener);
+        listeners.remove(listener);
     }
 
     public abstract void detecterAnomalie();
