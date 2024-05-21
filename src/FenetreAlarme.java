@@ -6,7 +6,7 @@ public class FenetreAlarme extends JFrame {
     public FenetreAlarme() {
 
         // Création de la fenêtre
-        this.setTitle("Fentre");
+        this.setTitle("Création d'une anomalie");
         this.setSize(500, 500);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
@@ -69,7 +69,7 @@ public class FenetreAlarme extends JFrame {
             }
         });
 
-        // Création du panel
+        // Ajout des panels à la fenêtre
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(0, 1));
         panel.add(panel_batiment);
@@ -124,7 +124,9 @@ public class FenetreAlarme extends JFrame {
             }
         });
 
-        // Affichage de la fenêtre
+        // Affichage de la fenêtre 
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/4-this.getSize().width/4, dim.height/2-this.getSize().height/2);
         this.setVisible(true);
     }
 }

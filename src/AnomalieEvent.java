@@ -1,6 +1,6 @@
 import java.util.EventObject;
 
-public class AnomalieEvent extends EventObject {
+public abstract class AnomalieEvent extends EventObject {
     protected String date;
     protected String localisation;
     protected int niveau_importance;
@@ -15,4 +15,20 @@ public class AnomalieEvent extends EventObject {
     public String toString() {
         return "AnomalieEvent [date=" + this.date + ", localisation=" + this.localisation + ", niveau_importance=" + this.niveau_importance + "/3]";
     }
+
+    public String getDate() {
+        return this.date;
+    }
+
+    public String getLocalisation() {
+        return this.localisation;
+    }
+
+    public int getNiveauImportance() {
+        return this.niveau_importance;
+    }
+
+    public abstract String getType();
+
+    public abstract String getDetails();
 }

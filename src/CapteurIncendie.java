@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 public class CapteurIncendie extends Capteur {
     private boolean feu;
 
@@ -43,6 +45,7 @@ public class CapteurIncendie extends Capteur {
             for (AnomalieListener listener : listeners){
                 listener.nouvelleAnomalie(event);
             }
+            JOptionPane.showMessageDialog(null, event.getDetails(), "Anomalie", JOptionPane.INFORMATION_MESSAGE);
         }
         else {
             for (AnomalieListener listener : listeners){

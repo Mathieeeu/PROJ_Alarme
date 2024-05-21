@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 public class CapteurGaz extends Capteur {
     private String type;
     private int niveau_gaz;
@@ -28,10 +30,11 @@ public class CapteurGaz extends Capteur {
             System.out.print("Entrez le niveau d'importance de l'anomalie (1, 2 ou 3) : ");
             int niveau_importance = Integer.parseInt(System.console().readLine());
             System.out.println("\n");
-            GazEvent event = new GazEvent(this, date, this.localisation, niveau_importance, this.type);
+            GazEvent event = new GazEvent(this, date, this.localisation, niveau_importance, this.type, this.niveau_gaz, this.seuil_niveau_gaz);
             for (AnomalieListener listener : listeners){
                 listener.nouvelleAnomalie(event);
             }
+            JOptionPane.showMessageDialog(null, event.getDetails(), "Anomalie", JOptionPane.INFORMATION_MESSAGE);
         }
         else {
             for (AnomalieListener listener : listeners){
@@ -45,7 +48,7 @@ public class CapteurGaz extends Capteur {
         this.type = type;
         if (this.niveau_gaz >= this.seuil_niveau_gaz) {
             System.out.println("\u001B[38;5;54mAnomalie trouvée !\u001B[0m");
-            GazEvent event = new GazEvent(this, date, this.localisation, niveau_importance, this.type);
+            GazEvent event = new GazEvent(this, date, this.localisation, niveau_importance, this.type, this.niveau_gaz, this.seuil_niveau_gaz);
             for (AnomalieListener listener : listeners){
                 listener.nouvelleAnomalie(event);
             }
