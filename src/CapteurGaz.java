@@ -39,4 +39,31 @@ public class CapteurGaz extends Capteur {
             }
         }
     }
+
+    public void detecterAnomalie(int niveau_gaz, String type, String date, int niveau_importance) {
+        this.niveau_gaz = niveau_gaz;
+        this.type = type;
+        if (this.niveau_gaz >= this.seuil_niveau_gaz) {
+            System.out.println("\u001B[38;5;54mAnomalie trouvée !\u001B[0m");
+            GazEvent event = new GazEvent(this, date, this.localisation, niveau_importance, this.type);
+            for (AnomalieListener listener : listeners){
+                listener.nouvelleAnomalie(event);
+            }
+        }
+        else {
+            for (AnomalieListener listener : listeners){
+                listener.aucuneAnomalie();
+            }
+        }
+    }
+
+    public void addAnomalieListener(AnomalieListener listener){
+        // si listener de type A ou B
+        if (listener instanceof MoniteurA || listener instanceof MoniteurB){
+            listeners.add(listener);
+        }
+        else {
+            System.out.println("Le capteur de gaz ne peut pas être surveillé par ce moniteur.");
+        }
+    }
 }

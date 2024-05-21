@@ -35,4 +35,30 @@ public class CapteurRadiation extends Capteur{
             }
         }
     }
+
+    public void detecterAnomalie(int niveau_radiation, String date, int niveau_importance) {
+        this.niveau_radiation = niveau_radiation;
+        if (this.niveau_radiation >= this.seuil_niveau_radiation) {
+            System.out.println("\u001B[38;5;54mAnomalie trouvée !\u001B[0m");
+            RadiationEvent event = new RadiationEvent(this, date, this.localisation, niveau_importance, this.niveau_radiation);
+            for (AnomalieListener listener : listeners){
+                listener.nouvelleAnomalie(event);
+            }
+        }
+        else {
+            for (AnomalieListener listener : listeners){
+                listener.aucuneAnomalie();
+            }
+        }
+    }
+
+    public void addAnomalieListener(AnomalieListener listener){
+        // si listener de type B
+        if (listener instanceof MoniteurB){
+            listeners.add(listener);
+        }
+        else {
+            System.out.println("Le capteur de radiation ne peut pas être surveillé par ce moniteur.");
+        }
+    }
 }

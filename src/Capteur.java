@@ -16,9 +16,7 @@ public abstract class Capteur {
         return "Capt" + this.nom + " [localisation=" + this.localisation + "]";
     }
 
-    public void addAnomalieListener(AnomalieListener listener) {
-        listeners.add(listener);
-    }
+    public abstract void addAnomalieListener(AnomalieListener listener);
 
     public void removeAnomalieListener(AnomalieListener listener) {
         listeners.remove(listener);
