@@ -1,5 +1,4 @@
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,9 +12,11 @@ class ButtonEditor extends DefaultCellEditor {
     protected JButton button;
     private String label;
     private boolean isPushed;
+    private ArrayList<Moniteur> moniteurs;
 
-    public ButtonEditor(JCheckBox checkBox) {
+    public ButtonEditor(JCheckBox checkBox, ArrayList<Moniteur> moniteurs) {
         super(checkBox);
+        this.moniteurs = moniteurs;
         button = new JButton();
         button.setOpaque(true);
         button.addActionListener(new ActionListener() {
@@ -46,7 +47,7 @@ class ButtonEditor extends DefaultCellEditor {
                 String type = (String) table.getValueAt(selectedRow, 0);
                 String moniteur = (String) table.getValueAt(selectedRow, 2);
                 if (moniteur.equals("A")) {
-                    for (AnomalieEvent event : Global.moniteurA.anomalies) {
+                    for (AnomalieEvent event : moniteurs.get(0).anomalies) {
                         if (event.getType().equals(type)) {
                             Object[] options = {"Traiter", "Fermer"};
                             int choice = JOptionPane.showOptionDialog(button,
@@ -58,12 +59,12 @@ class ButtonEditor extends DefaultCellEditor {
                                     options,
                                     options[0]);
                             if (choice == 0) {
-                                Global.moniteurA.traiterAnomalie(event);
+                                moniteurs.get(0).traiterAnomalie(event);
                             }
                         }
                     }
                 } else if (moniteur.equals("B")) {
-                    for (AnomalieEvent event : Global.moniteurB.anomalies) {
+                    for (AnomalieEvent event : moniteurs.get(1).anomalies) {
                         if (event.getType().equals(type)) {
                             Object[] options = {"Traiter", "Fermer"};
                             int choice = JOptionPane.showOptionDialog(button,
@@ -75,7 +76,7 @@ class ButtonEditor extends DefaultCellEditor {
                                     options,
                                     options[0]);
                             if (choice == 0) {
-                                Global.moniteurA.traiterAnomalie(event);
+                                moniteurs.get(1).traiterAnomalie(event);
                             }
                         }
                     }

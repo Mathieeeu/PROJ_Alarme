@@ -1,9 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class FenetreAlarme extends JFrame {
 
-    public FenetreAlarme() {
+    public FenetreAlarme(ArrayList<CapteurGaz> capteurs_gaz, ArrayList<CapteurIncendie> capteurs_incendie, ArrayList<CapteurRadiation> capteurs_radiation) {
 
         // Création de la fenêtre
         this.setTitle("Création d'une anomalie");
@@ -91,35 +92,35 @@ public class FenetreAlarme extends JFrame {
                 int niveau_gaz_choisi = Integer.parseInt(niveau_gaz.getText());
                 String type_gaz_choisi = type_gaz.getText();
                 if (batiment_choisi == "Batiment A") {
-                    Global.capteur_gazA.detecterAnomalie(niveau_gaz_choisi, type_gaz_choisi, date_choisi, niveau_importance_choisi);
+                    capteurs_gaz.get(0).detecterAnomalie(niveau_gaz_choisi, type_gaz_choisi, date_choisi, niveau_importance_choisi);
                 }
                 if (batiment_choisi == "Batiment B") {
-                    Global.capteur_gazB.detecterAnomalie(niveau_gaz_choisi, type_gaz_choisi, date_choisi, niveau_importance_choisi);
+                    capteurs_gaz.get(1).detecterAnomalie(niveau_gaz_choisi, type_gaz_choisi, date_choisi, niveau_importance_choisi);
                 }
                 if (batiment_choisi == "Batiment C") {
-                    Global.capteur_gazC.detecterAnomalie(niveau_gaz_choisi, type_gaz_choisi, date_choisi, niveau_importance_choisi);
+                    capteurs_gaz.get(2).detecterAnomalie(niveau_gaz_choisi, type_gaz_choisi, date_choisi, niveau_importance_choisi);
                 }
             } else if (type_anomalie_choisi.equals("Incendie")) {
                 boolean feu = true;
                 if (batiment_choisi == "Batiment A") {
-                    Global.capteur_incendieA.detecterAnomalie(feu, date_choisi, niveau_importance_choisi);
+                    capteurs_incendie.get(0).detecterAnomalie(feu, date_choisi, niveau_importance_choisi);
                 }
                 if (batiment_choisi == "Batiment B") {
-                    Global.capteur_incendieB.detecterAnomalie(feu, date_choisi, niveau_importance_choisi);
+                    capteurs_incendie.get(1).detecterAnomalie(feu, date_choisi, niveau_importance_choisi);
                 }
                 if (batiment_choisi == "Batiment C") {
-                    Global.capteur_incendieC.detecterAnomalie(feu, date_choisi, niveau_importance_choisi);
+                    capteurs_incendie.get(2).detecterAnomalie(feu, date_choisi, niveau_importance_choisi);
                 }
             } else if (type_anomalie_choisi.equals("Radiation")) {
                 int niveau_radiation_choisi = Integer.parseInt(niveau_radiation.getText());
                 if (batiment_choisi == "Batiment A") {
-                    Global.capteur_radiationA.detecterAnomalie(niveau_radiation_choisi, date_choisi, niveau_importance_choisi);
+                    capteurs_radiation.get(0).detecterAnomalie(niveau_radiation_choisi, date_choisi, niveau_importance_choisi);
                 }
                 if (batiment_choisi == "Batiment B") {
-                    Global.capteur_radiationB.detecterAnomalie(niveau_radiation_choisi, date_choisi, niveau_importance_choisi);
+                    capteurs_radiation.get(1).detecterAnomalie(niveau_radiation_choisi, date_choisi, niveau_importance_choisi);
                 }
                 if (batiment_choisi == "Batiment C") {
-                    Global.capteur_radiationC.detecterAnomalie(niveau_radiation_choisi, date_choisi, niveau_importance_choisi);
+                    capteurs_radiation.get(2).detecterAnomalie(niveau_radiation_choisi, date_choisi, niveau_importance_choisi);
                 }
             }
         });

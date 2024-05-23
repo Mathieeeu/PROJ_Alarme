@@ -14,6 +14,10 @@ public abstract class Moniteur implements AnomalieListener{
 
     public abstract String getType();
 
+    public String getNom() {
+        return this.nom;
+    }
+
     public void nouvelleAnomalie(AnomalieEvent anomalie){
         System.out.println("\u001B[38;5;34mAnomalie détectée pour " + this.nom + " :\n  ->\t" + anomalie.toString() + "\u001B[0m\n");
         this.anomalies.add(anomalie);
