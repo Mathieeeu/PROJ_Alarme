@@ -5,6 +5,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+/********************************************************************/
+/*      Classe pour permettre une bonne mise en forme des boutons   */
+/********************************************************************/
+
 public class FenetreMoniteur extends JFrame implements ActionListener {
     
     public FenetreMoniteur(ArrayList<Moniteur> moniteurs) {

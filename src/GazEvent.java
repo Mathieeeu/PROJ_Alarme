@@ -1,4 +1,6 @@
-// Classe abstraite GazEvent dérivée de AnomalieEvent
+/**********************************************************************/
+/*         Classe pour la création d'une anomalie de gaz              */
+/**********************************************************************/
 
 public class GazEvent extends AnomalieEvent {
     private String type;

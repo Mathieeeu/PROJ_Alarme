@@ -1,4 +1,6 @@
-// classe abstraite dérivée de AnomalieEvent
+/**********************************************************************/
+/*       Classe pour la création d'une anomalie d'incendie            */
+/**********************************************************************/
 
 public class IncendieEvent extends AnomalieEvent {
 

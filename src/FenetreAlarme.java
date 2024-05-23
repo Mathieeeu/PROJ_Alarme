@@ -2,6 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**********************************************************************/
+/*      Classe pour la fenêtre de création d'une anomalie             */
+/**********************************************************************/
+
 public class FenetreAlarme extends JFrame {
 
     public FenetreAlarme(ArrayList<CapteurGaz> capteurs_gaz, ArrayList<CapteurIncendie> capteurs_incendie, ArrayList<CapteurRadiation> capteurs_radiation) {

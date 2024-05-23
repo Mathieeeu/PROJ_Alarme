@@ -1,5 +1,9 @@
 import javax.swing.JOptionPane;
 
+/**********************************************************************/    
+/*      Classe pour la création d'un capteur de radiation             */
+/**********************************************************************/
+
 public class CapteurRadiation extends Capteur{
     private int niveau_radiation;
     private int seuil_niveau_radiation;

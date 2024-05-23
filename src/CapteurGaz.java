@@ -1,5 +1,9 @@
 import javax.swing.JOptionPane;
 
+/**********************************************************************/
+/*      Classe pour la création d'un capteur de gaz                   */
+/**********************************************************************/
+
 public class CapteurGaz extends Capteur {
     private String type;
     private int niveau_gaz;

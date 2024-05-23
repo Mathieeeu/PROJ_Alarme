@@ -1,5 +1,8 @@
+/**********************************************************************/
+/*       Classe pour les moniteurs de type A (gaz et radiations)      */
+/**********************************************************************/
+
 public class MoniteurB extends Moniteur {
-    // Moniteur de type B = anomalie de type gaz ou radiations
     public MoniteurB(String nom) {
         super(nom);
     }

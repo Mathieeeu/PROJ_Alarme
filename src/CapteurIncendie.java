@@ -1,5 +1,9 @@
 import javax.swing.JOptionPane;
 
+/**********************************************************************/
+/*      Classe pour la création d'un capteur d'incendie               */
+/**********************************************************************/
+
 public class CapteurIncendie extends Capteur {
     private boolean feu;
 

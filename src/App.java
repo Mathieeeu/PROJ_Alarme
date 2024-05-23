@@ -1,8 +1,11 @@
 import java.util.ArrayList;
 
+/*********************************************************************/
+/*                     Classe principale du projet                   */
+/*********************************************************************/
+
 public class App {
     public static void main(String[] args) throws Exception {
-        //Global.AffecterCapteurMoniteur();
 
         // Création des capteurs
         ArrayList<CapteurGaz> capteurs_gaz = new ArrayList<CapteurGaz>();

@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 
+/**********************************************************************/
+/*      Classe abstraite pour les moniteurs                           */
+/**********************************************************************/
+
 public abstract class Moniteur implements AnomalieListener{
     protected String nom;
     protected ArrayList<AnomalieEvent> anomalies = new ArrayList<AnomalieEvent>();

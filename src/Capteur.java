@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 
+/**********************************************************************/
+/*      Classe abstraite pour les capteurs                            */
+/**********************************************************************/
+
 public abstract class Capteur {
     protected String nom;
     protected String localisation;

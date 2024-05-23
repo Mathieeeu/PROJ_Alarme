@@ -4,9 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-/**********************************************************************/
-/*      Classe pour permettre une bonne mise en forme des boutons     */
-/**********************************************************************/
+/***************************************************************************/
+/* Classe pour permettre une bonne mise en forme et fonctions des boutons  */
+/***************************************************************************/
 
 class ButtonEditor extends DefaultCellEditor {
     protected JButton button;
@@ -36,6 +36,7 @@ class ButtonEditor extends DefaultCellEditor {
 
     @Override
     public Object getCellEditorValue() {
+        // Fonctionalités des boutons Détails et Traiter
         if (isPushed) {
             JTable table = (JTable) button.getParent();
             int selectedRow = table.getSelectedRow();

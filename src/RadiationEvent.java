@@ -1,4 +1,6 @@
-// Classe abstraite RadiationEvent dérivée de AnomalieEvent
+/**********************************************************************/
+/*          Classe pour la création d'une anomalie de radiation       */
+/**********************************************************************/
 
 public class RadiationEvent extends AnomalieEvent {
     private int niveau_rad;
