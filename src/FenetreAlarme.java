@@ -32,7 +32,7 @@ public class FenetreAlarme extends JFrame {
         JTextField type_gaz = new JTextField("CO2", 5);
         JLabel niveau_radiation_label = new JLabel("Niveau de radiation : ");
         JTextField niveau_radiation = new JTextField("50", 5);
-        JTextField date = new JTextField("01/01/2021", 10);
+        JTextField date = new JTextField("01/01/2024", 10);
         JButton bouton = new JButton("Créer l'anoamlie");
 
         // Création des panels

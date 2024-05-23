@@ -17,6 +17,6 @@ public class IncendieEvent extends AnomalieEvent {
     }
 
     public String getDetails() {
-        return "Incendie à " + super.localisation + " de niveau " + super.niveau_importance + "/3";
+        return "Incendie à " + super.localisation + " de niveau " + super.niveau_importance + "/3" + " (date : " + super.date + ")";
     }
 }

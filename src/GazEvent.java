@@ -35,6 +35,6 @@ public class GazEvent extends AnomalieEvent {
     }
 
     public String getDetails() {
-        return "Gaz " + this.type + " à " + super.localisation + " de niveau " + this.niveau_gaz + "/" + this.seuil_capteur;
+        return "Gaz " + this.type + " à " + super.localisation + " de niveau " + this.niveau_gaz + "/" + this.seuil_capteur + " (date : " + super.date + ")";
     }
 }

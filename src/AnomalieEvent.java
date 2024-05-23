@@ -1,7 +1,7 @@
 import java.util.EventObject;
 
 /**********************************************************************/
-/*      Classe abstraite pour les evenements des capteurs            */
+/*      Classe abstraite pour les evenements des capteurs             */
 /**********************************************************************/
 
 public abstract class AnomalieEvent extends EventObject {

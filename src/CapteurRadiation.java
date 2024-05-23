@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 public class CapteurRadiation extends Capteur{
     private int niveau_radiation;
     private int seuil_niveau_radiation;
+    
     public CapteurRadiation(String nom, String localisation) {
         super(nom, localisation);
         this.niveau_radiation = 0;

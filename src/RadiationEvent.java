@@ -23,6 +23,6 @@ public class RadiationEvent extends AnomalieEvent {
     }
 
     public String getDetails() {
-        return "Radiation à " + super.localisation + " de niveau " + this.niveau_rad + "/100";
+        return "Radiation à " + super.localisation + " de niveau " + this.niveau_rad + "/100" + " (date : " + super.date + ")";
     }
 }
