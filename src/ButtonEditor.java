@@ -47,37 +47,50 @@ class ButtonEditor extends DefaultCellEditor {
                 String type = (String) table.getValueAt(selectedRow, 0);
                 String moniteur = (String) table.getValueAt(selectedRow, 2);
                 if (moniteur.equals("A")) {
-                    for (AnomalieEvent event : moniteurs.get(0).anomalies) {
-                        if (event.getType().equals(type)) {
-                            Object[] options = {"Traiter", "Fermer"};
-                            int choice = JOptionPane.showOptionDialog(button,
-                                    event.toString(),
-                                    "Détails de l'anomalie",
-                                    JOptionPane.DEFAULT_OPTION,
-                                    JOptionPane.INFORMATION_MESSAGE,
-                                    null,
-                                    options,
-                                    options[0]);
-                            if (choice == 0) {
-                                moniteurs.get(0).traiterAnomalie(event);
-                            }
+                    AnomalieEvent event = null;                    
+                    for (AnomalieEvent tempEvent : moniteurs.get(0).anomalies) {
+                        if (tempEvent.getType().equals(type)) {
+                            event = tempEvent;
                         }
                     }
+                    Object[] options = {"Traiter", "Fermer"};
+                    int choice = JOptionPane.showOptionDialog(button,
+                            event.getDetails(),
+                            "Détails de l'anomalie",
+                            JOptionPane.DEFAULT_OPTION,
+                            JOptionPane.WARNING_MESSAGE,
+                            null,
+                            options,
+                            options[0]);
+                    if (choice == 0) {
+                        moniteurs.get(0).traiterAnomalie(event);
+                        // Si l'anomalie est de type gaz, on la traite aussi pour le moniteur de type B
+                        if (event.getType().equals("Gaz")) {
+                            moniteurs.get(1).traiterAnomalie(event);
+                        }
+                    }
+                    
                 } else if (moniteur.equals("B")) {
-                    for (AnomalieEvent event : moniteurs.get(1).anomalies) {
-                        if (event.getType().equals(type)) {
-                            Object[] options = {"Traiter", "Fermer"};
-                            int choice = JOptionPane.showOptionDialog(button,
-                                    event.getDetails(),
-                                    "Détails de l'anomalie",
-                                    JOptionPane.DEFAULT_OPTION,
-                                    JOptionPane.INFORMATION_MESSAGE,
-                                    null,
-                                    options,
-                                    options[0]);
-                            if (choice == 0) {
-                                moniteurs.get(1).traiterAnomalie(event);
-                            }
+                    AnomalieEvent event = null;                    
+                    for (AnomalieEvent tempEvent : moniteurs.get(1).anomalies) {
+                        if (tempEvent.getType().equals(type)) {
+                            event = tempEvent;
+                        }
+                    }
+                    Object[] options = {"Traiter", "Fermer"};
+                    int choice = JOptionPane.showOptionDialog(button,
+                        event.getDetails(),
+                        "Détails de l'anomalie",
+                        JOptionPane.DEFAULT_OPTION,
+                        JOptionPane.WARNING_MESSAGE,
+                        null,
+                        options,
+                        options[0]);
+                    if (choice == 0) {
+                        moniteurs.get(1).traiterAnomalie(event);
+                        // Si l'anomalie est de type gaz, on la traite aussi pour le moniteur de type A
+                        if (event.getType().equals("Gaz")) {
+                            moniteurs.get(0).traiterAnomalie(event);
                         }
                     }
                 }

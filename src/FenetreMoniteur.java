@@ -20,7 +20,6 @@ public class FenetreMoniteur extends JFrame implements ActionListener {
         for (int i = 0; i < moniteurs.size(); i++) {
             noms_moniteurs[i] = moniteurs.get(i).getNom();
         }
-        //String[] moniteurs = {"Moniteur A", "Moniteur B"};
         JLabel moniteur = new JLabel("Moniteur : ");
         JComboBox<String> moniteurs_list = new JComboBox<>(noms_moniteurs);
         String[] columnNames = {"Type", "Détails","Moniteur"}; // Type correspond à l'evenement, la colonne Détails contient un bouton pour afficher les détails de l'evenement
@@ -50,10 +49,28 @@ public class FenetreMoniteur extends JFrame implements ActionListener {
             }
         });
 
+        // Bouton actualiser
+        JButton btn_actualiser = new JButton("Actualiser");
+        btn_actualiser.addActionListener(e -> {
+            if (moniteurs_list.getSelectedItem().equals(moniteurs.get(0).getNom())) {
+                tableModel.setRowCount(0);
+                for (AnomalieEvent event : moniteurs.get(0).anomalies) {
+                    tableModel.addRow(new Object[]{event.getType(), "Détails","A"});
+                }
+            }
+            else if (moniteurs_list.getSelectedItem().equals(moniteurs.get(1).getNom())) {
+                tableModel.setRowCount(0);
+                for (AnomalieEvent event : moniteurs.get(1).anomalies) {
+                    tableModel.addRow(new Object[]{event.getType(), "Détails","B"});
+                }
+            }
+        });
+
         // Création des panels
         JPanel panel_moniteur = new JPanel();
         panel_moniteur.add(moniteur);
         panel_moniteur.add(moniteurs_list);
+        panel_moniteur.add(btn_actualiser);
         JPanel panel_liste_evenements = new JPanel();
         panel_liste_evenements.add(scrollPane);
 

@@ -21,6 +21,4 @@ public abstract class Capteur {
     public void removeAnomalieListener(AnomalieListener listener) {
         listeners.remove(listener);
     }
-
-    public abstract void detecterAnomalie();
 }
